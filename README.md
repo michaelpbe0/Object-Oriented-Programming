@@ -1,2 +1,2 @@
-# 2310-ECE
+# Object Oriented Programming
 Class Projects
