@@ -22,11 +22,14 @@ using namespace std;
 
 
 //------------------------PROTOTYPE-------------------------------------------
-void promptFile(vector<string> &); 
+
+/*void promptFile(vector<string>&);
 void printVec(vector<string>);
-void ranGen(){}
-void readFile(string filename, vector<string>& vec) {}
-void writeFile(string filename, const vector<string>& v0, const vector<string>& v1) {}
+void ranGen();
+void readFile(string filename, vector<string>& vec);
+void writeFile(string filename, const vector<string>& v0, const vector<string>& v1);
+*/
+
 /**
  * @brief randomly returns a number from 0 to 5.
  * - It is hardcoded to be from 0 to 5.
@@ -40,8 +43,9 @@ void writeFile(string filename, const vector<string>& v0, const vector<string>& 
  * 
  * @return int: index of question
  */
-int ranGen(){
-    int randomNumber = random_device % questions.size();  // 0 through 5
+int ranGen(const vector<string>& qBank){
+    random_device rd;
+    int randomNumber = rd() % qBank.size();  // 0 through 5
     return randomNumber;
 }
 
@@ -105,7 +109,7 @@ bool writeFile(string filename, const vector<string>& v0, const vector<string>& 
     // write under the structure:
     // Student_Name, Question_#
     for(int i = 0; i < v0.size(); i++){
-        outputFile << v0[i] << "," << v1[ranGen()] << endl;
+        outputFile << v0[i] << "," << v1[ranGen(v1)] << endl;
     }
     outputFile.close();
     return true;
@@ -117,13 +121,14 @@ int main()
     srand(time(nullptr));
     vector<string> roster;
     vector<string> qBank;
+
     readFile("2310_F26_Rosters.csv", roster);
     readFile("Questions.csv", qBank);
-    // printVec(roster);
-    // printVec(qBank);
+    //printVec(roster);
+    //printVec(qBank);
 
-    // cout << "Size of roster: " << roster.size() << endl; 
-    // cout << "Size of qBank: " << qBank.size() << endl;
+    cout << "Size of roster: " << roster.size() << endl; 
+    cout << "Size of qBank: " << qBank.size() << endl;
 
     writeFile("Student_question_bank.csv",roster, qBank);
 
