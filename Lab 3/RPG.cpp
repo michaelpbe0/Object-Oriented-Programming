@@ -12,4 +12,23 @@ class RPG(string name, int hits_taken, float luck, float exp, int lvl) {
 	this->luck = luck;
 	this->exp = exp;
 	this->lvl = lvl;
-})
+
+	//accessors
+	string getName() const {
+		return name;
+	}
+	int getHitsTaken() const {
+		return hits_taken;
+	}
+	float getLuck() const {
+		return luck;
+	}
+	float getExp() const {
+		return exp;
+	}
+	int getLvl() const {
+		return lvl;
+	}
+
+
+}
