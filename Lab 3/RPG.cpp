@@ -30,5 +30,17 @@ class RPG(string name, int hits_taken, float luck, float exp, int lvl) {
 		return lvl;
 	}
 
+	//mutator
+	setHitsTaken(int newHits) {
+		hits_taken = newHits;
+	}
+	isAlive() {
+		if (getHitsTaken() < MAX_HITS_TAKEN) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 }
