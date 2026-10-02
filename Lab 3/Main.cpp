@@ -8,5 +8,5 @@ int main(){
 	RPG p2 = RPG();
 
 	printf("%s Current Stats\n", p1.getName().c_str());
-	printf("Hits Taken: %i\t Luck: %i\t", p1.getHitsTaken().c_str(), p1.getLuck();
+	printf("Hits Taken: %i\t Luck: %i\t", p1.getHitsTaken(), p1.getLuck());
 }
