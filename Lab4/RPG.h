@@ -29,7 +29,7 @@ class RPG {
 		float getExp() const;
 		int getLvl() const;
 
-		void ~RPG();
+		~RPG();
 	private:
 		string name;
 		int hits_taken;

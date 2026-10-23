@@ -1,6 +1,6 @@
 #include "RPG.h"
 #include <iostream>
-
+#include <random>
 // RPG
 
 RPG::RPG() {
@@ -63,10 +63,11 @@ void RPG::updateExpLvl() {
 void RPG::attack(RPG& target) {
 	random_device rd;
 	mt19937 gen(rd()); 
-	uniform_real_distrobution<double> dis(0.0, 1.0);
-	float temp = 1 - target.getLuck();
-	if (temp < dis(gen)) {
+	uniform_real_distribution<double> dist(0.0, 1.0);
+	float temp = target.getLuck();
+	if (temp < dist(gen)) {
 		target.setHitsTaken(target.getHitsTaken() + 1);
+		cout << getName() << " attacked " << target.getName() << "!" << endl;
 	}
 	else {
 		cout << target.getName() << " dodged the attack!" << endl;
