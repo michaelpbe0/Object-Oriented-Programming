@@ -17,6 +17,10 @@ class RPG {
 		//mutators
 		bool isAlive() const;
 		void setHitsTaken(int newhits);
+		void setName(string newname);
+		void updateExpLvl();
+		void attack(RPG& target);
+		void printStats();
 	
 		//accessors 
 		string getName() const;
@@ -31,5 +35,11 @@ class RPG {
 		float luck;
 		float exp;
 		int lvl;
+
+
+
+
+
+
 };
 #endif
