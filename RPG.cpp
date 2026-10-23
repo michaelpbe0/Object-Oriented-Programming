@@ -46,3 +46,34 @@ void RPG::setHitsTaken(int newHits) {
 bool RPG::isAlive() const {
 	return getHitsTaken() < MAX_HITS_TAKEN;
 }
+void RPG::setName(string newname) {
+	this->name = newname;
+
+}
+void RPG::updateExpLvl() {
+	this->exp += 50;
+	if (this->exp >= 100) {
+		this->lvl += 1;
+		this->exp = 0;
+		this->luck += 0.1;
+	}
+}
+void RPG::attack(RPG& target) {
+	random_device rd;
+	mt19937 gen(rd()); 
+	uniform_real_distrobution<double> dis(0.0, 1.0);
+	float temp = 1 - target.getLuck();
+	if (temp < dis(gen)) {
+		target.setHitsTaken(target.getHitsTaken() + 1);
+	}
+	else {
+		cout << target.getName() << " dodged the attack!" << endl;
+	}
+}
+void RPG::printStats() {
+	cout << "Name: " << getName() << endl;
+	cout << "Level: " << getLvl() << endl;
+	cout << "Experience: " << getExp() << endl;
+	cout << "Hits Taken: " << getHitsTaken() << endl;
+	cout << "Luck: " << getLuck() << endl;
+}
