@@ -46,7 +46,7 @@ void Charmander::speak() {
  *
  */
 void Charmander::printStats() {
-    Pokemon::printStats();
+    printStats();
 
     cout << "Skills: ";
 
